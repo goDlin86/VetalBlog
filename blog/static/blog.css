@@ -2,7 +2,7 @@
     --accent-color: #482ef8;
     --title-color: #2a2a2a;
     --text-color: rgba(0, 0, 0, 0.84);
-    --date-color: #4c4c4c;
+    --date-color: rgba(0, 0, 0, 0.54);
 
 }
 
@@ -59,7 +59,7 @@ small, .text_small {font-size: 0.75em;}
 }
 article {
     padding: 20px;
-    margin: 30px 0;
+    margin: 30px 10px;
     box-shadow: 0 0 28px #E3E7EB;
     border-radius: 10px;
 }
