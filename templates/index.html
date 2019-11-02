@@ -12,7 +12,7 @@
     {% for post in post_list %}
     <article>
         <h2 class="title">{{ post.title }}</h2>
-        <p class="date">{{ post.author }} | {{ post.created_on}} </p>
+        <p><b>{{ post.author }}</b> | <span class="date">{{ post.created_on }}</span></p>
         <p class="text">{{post.content|slice:":200" }}</p>
         <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Читать далее &rarr;</a>
     </article>

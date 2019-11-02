@@ -21,12 +21,7 @@
 
         {% for comment in comments %}
         <div class="comments" style="padding: 10px;">
-          <p class="font-weight-bold">
-              <b>{{ comment.name }}</b> |
-            <span class="date">
-              {{ comment.created_on }}
-            </span>
-          </p>
+          <p><b>{{ comment.name }}</b> | <span class="date">{{ comment.created_on }}</span></p>
           {{ comment.body | linebreaks }}
         </div>
         {% endfor %}
