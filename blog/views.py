@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 from django.views import generic
 from .models import Post
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
 from django.shortcuts import render, get_object_or_404
 
 class PostList(generic.ListView):
@@ -36,3 +36,19 @@ def post_detail(request, slug):
                                            'comments': comments,
                                            'new_comment': new_comment,
                                            'comment_form': comment_form})
+
+@login_required
+def new_post(request):
+    """Render the page to create a new post."""
+    current_user = request.user
+
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    else:
+        form = PostForm(initial={'author': current_user})
+
+    context = {'form': form}
+    return render(request, 'new_post.html', context)

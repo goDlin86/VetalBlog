@@ -17,7 +17,7 @@
 
       <article>
         <!-- comments -->
-        <h4>{{ comments.count }} comments</h4>
+        <h4>{{ comments.count }} комментариев</h4>
 
         {% for comment in comments %}
         <div class="comments" style="padding: 10px;">
@@ -29,13 +29,13 @@
 
       <article>
         {% if new_comment %}
-        <p>Your comment is awaiting moderation</p>
+        <p>Ваш комментарий ждет модерации</p>
         {% else %}
-        <h3>Leave a comment</h3>
+        <h3>Оставить комментарий</h3>
         <form method="post" style="margin-top: 1.3em;">
           {{ comment_form.as_p }}
           {% csrf_token %}
-          <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
+          <button type="submit" class="btn btn-primary  btn-lg">Отправить</button>
         </form>
         {% endif %}
       </article>
