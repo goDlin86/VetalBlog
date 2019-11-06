@@ -16,6 +16,7 @@ python_version = "3.7"
 django-heroku = "*"
 dj-database-url = "*"
 django-storages = "*"
+django-markdownx = "*"
 gunicorn = "*"
 
 
