@@ -1,21 +1,15 @@
 {% extends "base.html" %} 
 {% block content %}
-<header class="center">
-    <div class="container">
-        <h1>Blog</h1>
-        <div class="circle"></div>
-        <div class="themeblog">theme blog</div>
-    </div>
-</header>
-<div class="line"></div>
+
 <div class="container">
     {% for post in post_list %}
     <article>
         <h2 class="title">{{ post.title }}</h2>
         <p><b>{{ post.author }}</b> | <span class="date">{{ post.created_on }}</span></p>
-        <p class="text">{{post.content|slice:":200" }}</p>
+        <p class="text">{{post.body_summary|striptags }}</p>
         <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Читать далее &rarr;</a>
     </article>
     {% endfor %}
 </div>
+
 {%endblock%}

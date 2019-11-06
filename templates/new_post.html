@@ -1,22 +1,18 @@
-{% extends 'base.html' %} {% block content %}
+{% extends "base.html" %}
+{% block content %}
 
-<header class="center">
-    <div class="container">
-        <h1>Blog</h1>
-        <a href="/"><div class="circle"></div></a>
-        <div class="themeblog">theme blog</div>
-    </div>
-</header>
-<div class="line"></div>
 <div class="container">
 
-      <article>
+    <article>
         <form method="post" style="margin-top: 1.3em;">
           {{ form.as_p }}
           {% csrf_token %}
           <button type="submit" class="btn btn-primary  btn-lg">Сохранить</button>
         </form>
-      </article>
+    </article>
+    <article>
+        {{ form.media }}
+    </article>
 
 </div>
 

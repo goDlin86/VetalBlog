@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'storages',
+    'markdownx',
     'blog'
 ]
 
@@ -88,7 +89,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'blog',
         'USER': 'godlin',
-        'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD', '90d09145'),
         'HOST': 'localhost',
         'PORT': '',
     }
