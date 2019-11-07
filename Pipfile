@@ -17,6 +17,7 @@ django-heroku = "*"
 dj-database-url = "*"
 django-storages = "*"
 django-markdownx = "*"
+boto3 = "*"
 gunicorn = "*"
 
 
