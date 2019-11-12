@@ -43,7 +43,7 @@ INSTALLED_APPS = [
 
     'storages',
     'blog',
-    'markdownx',
+
 ]
 
 MIDDLEWARE = [
@@ -89,7 +89,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'blog',
         'USER': 'godlin',
-        'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD', '90d09145'),
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -145,11 +145,7 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 MEDIA_URL = 'https://%s.s3.eu-central-1.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_HOST = 's3.eu-central-1.amazonaws.com'
-S3_USE_SIGV4 = True
-AWS_S3_REGION_NAME = 'eu-central-1'
+#S3_USE_SIGV4 = True
+#AWS_S3_REGION_NAME = 'eu-central-1'
 
 django_heroku.settings(locals())
-
-MARKDOWNX_MARKDOWN_EXTENSIONS = [
-    'markdown.extensions.extra'
-]

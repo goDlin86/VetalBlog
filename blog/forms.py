@@ -1,6 +1,5 @@
 from .models import Comment, Post
 from django import forms
-from markdownx.fields import MarkdownxFormField
 
 
 class CommentForm(forms.ModelForm):
@@ -32,15 +31,13 @@ class PostForm(forms.ModelForm):
     #                                      label='Publication time',
     #                                      help_text=DATETIME_HELP_TEXT)
 
-    # content = forms.CharField(
-    #     widget=forms.Textarea(attrs={'rows': '24', 'cols': '80'}),
-    #     help_text=MARKDOWN_HELP_TEXT)
-
-    body = MarkdownxFormField()
+    content = forms.CharField(
+        widget=forms.Textarea(attrs={'rows': '24', 'cols': '80'}),
+        help_text=MARKDOWN_HELP_TEXT)
 
     class Meta:
         model = Post
-        fields = ['title', 'author', 'slug', 'body', 'status']
+        fields = ['title', 'author', 'slug', 'content', 'status']
 
     def save(self, commit=True, publish=False):
         instance = super(PostForm, self).save(commit=False)

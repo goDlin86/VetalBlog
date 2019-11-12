@@ -5,7 +5,7 @@
       <article>
         <h2>{% block title %} {{ post.title }} {% endblock title %}</h2>
         <p><b>{{ post.author }}</b> | <span class="date">{{ post.created_on }}</span></p>
-        <p class="text ">{{ post.formatted_markdown | safe }}</p>
+        <p class="text ">{{ post.content | safe }}</p>
       </article>
 
       <article>
