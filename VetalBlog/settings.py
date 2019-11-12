@@ -43,7 +43,8 @@ INSTALLED_APPS = [
 
     'storages',
     'blog',
-
+    'ckeditor',
+    'ckeditor_uploader'
 ]
 
 MIDDLEWARE = [
@@ -149,3 +150,18 @@ AWS_S3_HOST = 's3.eu-central-1.amazonaws.com'
 #AWS_S3_REGION_NAME = 'eu-central-1'
 
 django_heroku.settings(locals())
+
+CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/'
+
+CKEDITOR_UPLOAD_PATH = 'content/ckeditor/'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': [[ 'Bold', 'Italic', 'Underline', 'Strike', 'RemoveFormat', '-', 'Link', 'Unlink', '-',
+                      'NumberedList', 'BulletedList', '-', 'Blockquote', '-', 'TextColor', 'BGColor',
+                      '-', 'Source', '-', 'Image', 'Table', 'HorizontalRule',
+                      'SpecialChar', '-', 'Format']],
+        'height': 300,
+        'width': 700,
+    },
+}

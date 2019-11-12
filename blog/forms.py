@@ -1,5 +1,6 @@
 from .models import Comment, Post
 from django import forms
+from ckeditor.widgets import CKEditorWidget
 
 
 class CommentForm(forms.ModelForm):
@@ -8,32 +9,13 @@ class CommentForm(forms.ModelForm):
         fields = ('name', 'email', 'body')
 
 
-MARKDOWN_HELP_TEXT = """
-Please use
-<a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a>.
-Examples:
-<br>
-*italic*, **bold**, - bulleted, 1. numbered
-<br>
-&lt;http://google.com&gt;
-<br>
-[click here](http://google.com)
-<br>
-![squirrel](http://squirrel.jpg)
-<br>
-![squirrel](http://squirrel.jpg "My Pet Squirrel")
-"""
-
-
 class PostForm(forms.ModelForm):
     # time_published = forms.DateTimeField(required=False,
     #                                      widget=AdminSplitDateTime(),
     #                                      label='Publication time',
     #                                      help_text=DATETIME_HELP_TEXT)
 
-    content = forms.CharField(
-        widget=forms.Textarea(attrs={'rows': '24', 'cols': '80'}),
-        help_text=MARKDOWN_HELP_TEXT)
+    content = forms.CharField(widget=CKEditorWidget())
 
     class Meta:
         model = Post
