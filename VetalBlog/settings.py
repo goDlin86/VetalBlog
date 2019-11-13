@@ -142,7 +142,7 @@ AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = os.environ.get('S3_BUCKET_NAME')
 
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'#'storages.backends.s3boto3.S3Boto3Storage'
 
 MEDIA_URL = 'https://%s.s3.eu-central-1.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_HOST = 's3.eu-central-1.amazonaws.com'
@@ -153,15 +153,21 @@ django_heroku.settings(locals())
 
 CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/'
 
-CKEDITOR_UPLOAD_PATH = 'content/ckeditor/'
+CKEDITOR_UPLOAD_PATH = '/content/ckeditor/'
 
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': [[ 'Bold', 'Italic', 'Underline', 'Strike', 'RemoveFormat', '-', 'Link', 'Unlink', '-',
-                      'NumberedList', 'BulletedList', '-', 'Blockquote', '-', 'TextColor', 'BGColor',
-                      '-', 'Source', '-', 'Image', 'Table', 'HorizontalRule',
-                      'SpecialChar', '-', 'Format']],
+        'toolbar': [['Bold', 'Italic', 'Underline', 'Strike', 'RemoveFormat', '-', 'Link', 'Unlink', '-',
+                     'NumberedList', 'BulletedList', '-', 'Blockquote', '-', 'TextColor', 'BGColor',
+                     '-', 'Source', '-', 'Image', 'Table', 'HorizontalRule', 'Smiley',
+                     'SpecialChar', '-', 'Format']],
         'height': 300,
-        'width': 700,
+        'width': 660,
+        'extraPlugins': 'uploadimage'
     },
 }
+
+AWS_QUERYSTRING_AUTH = False
+
+DROPBOX_OAUTH2_TOKEN = os.environ.get('DROPBOX_OAUTH2_TOKEN')
+#DROPBOX_ROOT_PATH = 'Blog'

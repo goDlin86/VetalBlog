@@ -1,6 +1,7 @@
 from .models import Comment, Post
 from django import forms
 from ckeditor.widgets import CKEditorWidget
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 
 class CommentForm(forms.ModelForm):
@@ -15,7 +16,7 @@ class PostForm(forms.ModelForm):
     #                                      label='Publication time',
     #                                      help_text=DATETIME_HELP_TEXT)
 
-    content = forms.CharField(widget=CKEditorWidget())
+    content = forms.CharField(widget=CKEditorUploadingWidget())
 
     class Meta:
         model = Post
