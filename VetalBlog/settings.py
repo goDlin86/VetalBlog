@@ -163,7 +163,7 @@ CKEDITOR_CONFIGS = {
                      '-', 'Source', '-', 'Image', 'Table', 'HorizontalRule', 'Smiley',
                      'SpecialChar', '-', 'Format']],
         'height': 300,
-        'width': 660,
+        'width': 640,
         'extraPlugins': 'uploadimage'
     },
 }

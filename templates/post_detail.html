@@ -2,13 +2,25 @@
 {% block content %}
 
 <div class="container">
-      <article>
+    <article>
         <h2>{% block title %} {{ post.title }} {% endblock title %}</h2>
         <p><b>{{ post.author }}</b> | <span class="date">{{ post.created_on }}</span></p>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://vetalblog.herokuapp.com{{ request.path | urlencode }}" class="share_link" target="_blank">
+            <svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>
+        </a>
+        <a href="https://twitter.com/share?text={{ post.title }}&url=https://vetalblog.herokuapp.com{{ request.path | urlencode }}" class="share_link" target="_blank">
+            <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
+        </a>
+        <a href="https://vk.com/share.php?title={{ post.title }}&url=https://vetalblog.herokuapp.com{{ request.path | urlencode }}" class="share_link" target="_blank">
+            <svg class="icon icon-vk"><use xlink:href="#icon-vk"></use></svg>
+        </a>
+        <a href="https://telegram.me/share/url?text={{ post.title }}&url=https://vetalblog.herokuapp.com{{ request.path | urlencode }}" class="share_link" target="_blank">
+            <svg class="icon icon-telegram"><use xlink:href="#icon-telegram"></use></svg>
+        </a>
         <p class="text ">{{ post.content | safe }}</p>
-      </article>
+    </article>
 
-      <article>
+    <article>
         <!-- comments -->
         <h4>{{ comments.count }} комментариев</h4>
 
@@ -18,9 +30,9 @@
           {{ comment.body | linebreaks }}
         </div>
         {% endfor %}
-      </article>
+    </article>
 
-      <article>
+    <article>
         {% if new_comment %}
         <p>Ваш комментарий ждет модерации</p>
         {% else %}
@@ -31,7 +43,7 @@
           <button type="submit" class="btn btn-primary  btn-lg">Отправить</button>
         </form>
         {% endif %}
-      </article>
+    </article>
 </div>
 
 {% endblock content %}

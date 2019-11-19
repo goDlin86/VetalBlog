@@ -80,6 +80,23 @@ a {
     background-color: #333;
     margin: 0 auto;
 }
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: var(--accent-color);
+    fill: var(--accent-color);
+    font-size: 32px;
+    padding: 5px;
+    transition: fill 0.3s ease-in;
+}
+.icon:hover {
+    fill: var(--title-color);
+}
+.share_link {
+    text-decoration: none;
+}
 
 
 footer {
